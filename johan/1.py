@@ -17,7 +17,7 @@ def number_of_increases(depths):
 
 window_sum = []
 for i in range(len(depths)):
-    window = depths[i: i + 3]
+    window = depths[i:i + 3]
     if len(window) == 3:
         window_sum.append(sum(window))
 
