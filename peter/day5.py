@@ -28,6 +28,9 @@ class Line:
         else:
             y_coords = list(reversed(range(self.v2.y, self.v1.y + 1)))
 
+        # Assumes horizontal, vertical or exactly diagonal lines.
+        assert len(y_coords) == len(x_coords) or any([len(y_coords) == 1, len(x_coords) == 1])
+
         if len(x_coords) == 1:
             x_coords *= len(y_coords)
         elif len(y_coords) == 1:
