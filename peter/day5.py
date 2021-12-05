@@ -57,31 +57,15 @@ for line in file_lines:
     )
 
 
-position_counts = collections.Counter()
-for line in lines:
-    for point in line.get_points(skip_diagonal=True):
-        position_counts[point] += 1
+for skip_diagonal in (True, False):
+    position_counts = collections.Counter()
+    for line in lines:
+        for point in line.get_points(skip_diagonal=skip_diagonal):
+            position_counts[point] += 1
 
-
-n = 0
-for point, count in position_counts.most_common():
-    if count < 2:
-        break
-    n += 1
-
-print("Part 1:", n)
-
-
-position_counts = collections.Counter()
-for line in lines:
-    for point in line.get_points(skip_diagonal=False):
-        position_counts[point] += 1
-
-n = 0
-
-for point, count in position_counts.most_common():
-    if count < 2:
-        break
-    n += 1
-
-print("Part 2:", n)
+    n = 0
+    for point, count in position_counts.most_common():
+        if count < 2:
+            break
+        n += 1
+    print("Part 1:" if skip_diagonal else "Part 2:", n)
