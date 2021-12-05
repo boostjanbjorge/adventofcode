@@ -1,4 +1,3 @@
-
 import dataclasses
 import uuid
 
@@ -53,10 +52,9 @@ class Board:
         return sum(sum(n.N for n in row if not n.marked) for row in self.rows) * draw
 
 
-
 def chunk(arr, size):
     for i in range(0, len(arr), size):
-        yield arr[i:i+size]
+        yield arr[i : i + size]
 
 
 def borads():
@@ -97,6 +95,7 @@ def last_win():
 
         candidates = tuple(b for b in candidates if b.id not in remove)
         remove.clear()
+
 
 # 18990, 82440
 print("a:", first_win())

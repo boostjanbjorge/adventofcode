@@ -1,4 +1,3 @@
-
 import collections
 
 with open("inputs/2.txt") as f:
@@ -21,5 +20,5 @@ for cmd, step in instructions:
 
 print(cnt)
 
-print("a: ", cnt["forward"] * (cnt["down"]-cnt["up"]))
+print("a: ", cnt["forward"] * (cnt["down"] - cnt["up"]))
 print("b: ", cnt["forward"] * cnt["depth"])
