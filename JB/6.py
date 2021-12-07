@@ -1,6 +1,7 @@
 import dataclasses
 import collections
 
+
 @dataclasses.dataclass
 class Fish:
     timer: int
@@ -37,7 +38,7 @@ def incubate(days: int):
                 today[8] += cnt
                 today[6] += cnt
             else:
-                today[timer-1] += cnt
+                today[timer - 1] += cnt
         yesterday = today
 
     return sum(today.values())
