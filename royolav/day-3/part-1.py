@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-with open("input-3.txt", "r") as f:
+with open("input.txt", "r") as f:
     lines = f.readlines()
     gamma = ""
     epsilon = ""
