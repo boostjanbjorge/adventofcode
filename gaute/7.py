@@ -8,7 +8,7 @@ def crabby_fuel(inputs):
 def sgn(x):
     if x>=0:
         return 1
-    return 0
+    return -1
 
 def iterate_position(init_pos, inputs):
     pos=init_pos
