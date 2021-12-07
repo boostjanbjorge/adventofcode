@@ -1,6 +1,5 @@
 import collections
 import tqdm
-import copy
 
 fish = open("inputs/day6.txt").read().strip().split(",")
 fish = [int(f) for f in fish]
