@@ -12,6 +12,15 @@ for i, raw_string in enumerate(raw_strings):
     for j, char in enumerate(raw_string):
         heightmap[i+1,j+1]=int(char)
 
+directions=[(-1,0),(1,0), (0,-1), (0,1)]
+def find_low_points(heightmap):
+    low_points=[]
+    for i in range(1,heightmap.shape[0]-1):
+        for j in range(1,heightmap.shape[1]-1):
+            if all(heightmap[i,j] < heightmap[i+x,j+y] for x,y in directions):
+                low_points.append(((i,j),heightmap[i,j]))
+    return low_points
+
 low_points=find_low_points(heightmap)
 
 #answer part 1
