@@ -26,15 +26,22 @@ def points_b(c):
 
 
 def opening():
-    return ("(", "[", "{", "<")
+    return tuple(pairs().keys())
 
 
 def closing():
-    return (")", "]", "}", ">")
+    return tuple(pairs().values())
 
 
-def chunks():
-    return dict(zip(opening(), closing()))
+def pairs():
+    return dict(
+        (
+            ("(", ")"),
+            ("[", "]"),
+            ("{", "}"),
+            ("<", ">"),
+        )
+    )
 
 
 def balanced(row):
@@ -44,7 +51,7 @@ def balanced(row):
         if op in opening():
             stack.append(op)
         else:
-            if stack and op != chunks()[stack[-1]]:
+            if stack and op != pairs()[stack[-1]]:
                 illegal.append(op)
             if stack:
                 stack.pop()
@@ -56,14 +63,14 @@ def close(row):
     while True:
         n = None
         for idx in range(len(row) - 1):
-            if row[idx] in opening() and chunks()[row[idx]] == row[idx + 1]:
+            if row[idx] in opening() and pairs()[row[idx]] == row[idx + 1]:
                 n = idx
                 break
         if n is not None:
             del row[idx + 1]
             del row[idx]
         if n is None:
-            return "".join(chunks()[r] for r in reversed(row))
+            return "".join(pairs()[r] for r in reversed(row))
 
 
 def b():
@@ -78,3 +85,5 @@ def b():
 
 print("a:", sum(sum(points_a(i) for i in balanced(row)) for row in load()))
 print("b:", st.median(b()))
+
+assert st.median(b()) == 2762335572
