@@ -85,5 +85,3 @@ def b():
 
 print("a:", sum(sum(points_a(i) for i in balanced(row)) for row in load()))
 print("b:", st.median(b()))
-
-assert st.median(b()) == 2762335572
