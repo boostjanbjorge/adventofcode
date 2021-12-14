@@ -3,19 +3,6 @@ with open("day11.txt") as f:
     c = np.array([list(map(int, line.rstrip())) for line in f.readlines()])
 
 
-def window(m, mask):
-    x,y = m.shape
-    for i in range(x):
-        xl = max(0, i-1)
-        xu = min(x, i+2)
-        for j in range(y):
-            yl = max(0, i-1)
-            yu = min(y, i+2)
-            yields (i, y, m[xl:xu, yl:yu], mask[xl:xu, yl:yu])
-
-def win(i, j, m):
-    return m[xl:xu, yl:yu]
-
 x,y = c.shape
 total_number_of_flashing_octopuses = 0
 
