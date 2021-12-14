@@ -17,7 +17,7 @@ maps = {
 for _ in range(40):
     new_pairs = collections.Counter()
     char_count = collections.Counter()
-    for i, (pair, count) in enumerate(pair_counts.items()):
+    for pair, count in pair_counts.items():
         triplet = pair[0] + maps[pair] + pair[1]
 
         char_count[pair[0]] += count / 2
