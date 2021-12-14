@@ -18,14 +18,15 @@ for _ in range(40):
     new_pairs = collections.Counter()
     char_count = collections.Counter()
     for pair, count in pair_counts.items():
-        triplet = pair[0] + maps[pair] + pair[1]
+        c1, c2 = list(pair)
+        new_char = maps[pair]
 
-        char_count[pair[0]] += count / 2
-        char_count[triplet[1]] += count
-        char_count[pair[1]] += count / 2
+        char_count[c1] += count / 2
+        char_count[new_char] += count
+        char_count[c2] += count / 2
 
-        new_pairs[triplet[:-1]] += count
-        new_pairs[triplet[1:]] += count
+        new_pairs[c1 + new_char] += count
+        new_pairs[new_char + c2] += count
 
     pair_counts = new_pairs
 
