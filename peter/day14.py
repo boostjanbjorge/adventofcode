@@ -7,7 +7,7 @@ with open("inputs/day14.txt") as f:
 init = lines[0]
 pair_counts = collections.Counter()
 for c1, c2 in zip(init[:-1], init[1:]):
-    pair_counts[c1 + c2] = pair_counts.get(c1 + c2, 0) + 1
+    pair_counts[c1 + c2] += 1
 
 maps = [l.split(" -> ") for l in lines[2:]]
 maps = {
