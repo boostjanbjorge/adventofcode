@@ -4,7 +4,7 @@ with open("day15.txt") as f:
     caves = np.array([list(map(int, line.rstrip())) for line in f.readlines()])
 
 bigger_caves = np.concatenate([caves + i for i in range(5)], axis=1)
-biggest_caves = np.concatenate([larger_caves + i for i in range(5)], axis=0)
+biggest_caves = np.concatenate([bigger_caves + i for i in range(5)], axis=0)
 biggest_caves[np.where(biggest_caves > 9)] -= 9
 
 def traverse_caves(caves):
@@ -30,4 +30,4 @@ def traverse_caves(caves):
             visited[n] = n_cost
             dist = (exit[0]-n[0])**2+(exit[1]-n[1])**2
             points.put(((n_cost, dist), n))
-print(traverse_caves(even_larger_caves))  
+print(traverse_caves(biggest_caves))  
