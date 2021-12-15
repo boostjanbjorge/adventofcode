@@ -39,7 +39,7 @@ def count(steps: int):
     (_, most), *_, (_, least) = accumulated.most_common()
 
     # Don't undersant why i need to add one, but worked with
-    # ex-data and work with real... 
+    # ex-data and work with real...
     return (most - least) // 2 + 1
 
 
