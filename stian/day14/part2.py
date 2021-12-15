@@ -11,16 +11,16 @@ for s,e in zip(template, template[1:]):
 
 for i in range(40):
     new_pairs = defaultdict(int)
-    single = defaultdict(int)
-    for s, e in pairs.keys():
-        n = xform[s+e]
-        v_old = pairs[(s,e)]
-        new_pairs[(s,n)] += v_old
-        new_pairs[(n,e)] += v_old
-        single[s] += v_old
-        single[n] += v_old
-    single[template[-1]] += 1
+    for p, v in pairs.items():
+        n = xform["".join(p)]
+        new_pairs[(p[0],n)] += v
+        new_pairs[(n,p[1])] += v
     pairs = new_pairs
+
+single = defaultdict(int)
+for p, v in pairs.items():
+    single[p[0]] += v
+single[template[-1]] += 1
 
 s = sorted(single.items(), key=lambda p: p[1])
 print(s[-1][1] - s[0][1])
