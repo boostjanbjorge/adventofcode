@@ -1,6 +1,8 @@
-with open("input.2") as f:
-    instructions = [instruction.split() for instruction in f.readlines()]
-    instructions = [(d, int(v)) for d, v in instructions]
+import get
+
+instructions = get.input(2)
+instructions = [instruction.split() for instruction in instructions]
+instructions = [(d, int(v)) for d, v in instructions]
 
 depth = 0
 horizontal = 0
@@ -28,5 +30,5 @@ for d, v in instructions:
     if d == "forward":
         horizontal += v
         depth += aim * v
-    
+
 print(horizontal * depth)

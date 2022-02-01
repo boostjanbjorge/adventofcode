@@ -1,5 +1,6 @@
-with open("input.3") as f:
-    bitstrings = [bitstring.strip() for bitstring in f.readlines()]
+import get
+
+bitstrings = get.input(3)
 
 transpose = ["".join(tr) for tr in zip(*bitstrings)]
 gamma = []
@@ -31,7 +32,7 @@ for tr in transpose:
 print(from_binary(gamma) * from_binary(epsilon))
 
 
-def reduce(bitstrings, criterion, i = 0):
+def reduce(bitstrings, criterion, i=0):
     if len(bitstrings) == 1:
         return bitstrings[0]
 
